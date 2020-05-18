@@ -18,7 +18,7 @@ const (
 )
 
 var port = flag.String("port", ":8888", "http server port number. Default to :8888.")
-var grpcAddress = flag.String("grpc", "localhost:50051", "gRPC helle world server address")
+var grpcAddress = flag.String("grpc", "127.0.0.1:50051", "gRPC helle world server address")
 var client pb.GreeterClient
 
 func main() {
