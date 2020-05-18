@@ -31,6 +31,7 @@ func main() {
 	client = pb.NewGreeterClient(conn)
 
 	http.HandleFunc("/showHeaders", showHeaders)
+	http.HandleFunc("/sayHello", sayHello)
 	http.ListenAndServe(*port, nil)
 }
 
