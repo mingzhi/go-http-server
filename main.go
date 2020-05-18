@@ -23,7 +23,7 @@ var client pb.GreeterClient
 
 func main() {
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(*grpcAddress, grpc.WithInsecure())
+	conn, err := grpc.Dial(*grpcAddress, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Printf("did not connect: %v", err)
 	}
