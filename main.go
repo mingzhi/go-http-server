@@ -25,7 +25,7 @@ func main() {
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(*grpcAddress, grpc.WithInsecure())
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
+		log.Printf("did not connect: %v", err)
 	}
 	defer conn.Close()
 	client = pb.NewGreeterClient(conn)
