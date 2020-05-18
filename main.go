@@ -22,6 +22,7 @@ var grpcAddress = flag.String("grpc", "127.0.0.1:50051", "gRPC helle world serve
 var client pb.GreeterClient
 
 func main() {
+	log.Println("go-http-server starting...")
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(*grpcAddress, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
@@ -29,6 +30,7 @@ func main() {
 	}
 	defer conn.Close()
 	client = pb.NewGreeterClient(conn)
+	log.Println("go-http-server connected to grpc server.")
 
 	http.HandleFunc("/showHeaders", showHeaders)
 	http.HandleFunc("/sayHello", sayHello)
